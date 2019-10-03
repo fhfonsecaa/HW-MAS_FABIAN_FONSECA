@@ -1,13 +1,6 @@
-# B-Human Code Release
+Welcome to the HomeworkMAS-RoboCup wiki!
 
-This is the official 2018 B-Human code release.
+[SPQR Team website](http://spqr.diag.uniroma1.it/)
 
-* The 2017 code release is tagged with "coderelease2017".
-
-* The 2016 code release is tagged with "coderelease2016".
-
-* The 2015 code release is tagged with "coderelease2015".
-
-* The 2014 code release is tagged with "coderelease2014".
-
-* The 2013 code release is tagged with "coderelease2013".
+* [Install](https://github.com/SPQRTeam/HomeworkMAS-RoboCup/wiki/How-to-install)
+* [HowTo](https://github.com/SPQRTeam/HomeworkMAS-RoboCup/wiki/How-to-bhuman:-beginners-guide)
