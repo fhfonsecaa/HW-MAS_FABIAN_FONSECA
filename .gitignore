@@ -121,3 +121,5 @@ Util/alcommon/lib/linux/libboost_filesystem.so.1.59.0
 Util/alcommon/lib/linux/libboost_locale.so.1.59.0
 Util/alcommon/lib/linux/libboost_regex.so.1.59.0
 
+
+.vscode/
