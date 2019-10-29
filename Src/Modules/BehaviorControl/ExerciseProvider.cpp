@@ -1,5 +1,5 @@
 #include "ExerciseProvider.h"
-MAKE_MODULE(ExerciseProvider , behaviorControl)
+MAKE_MODULE(ExerciseProvider, behaviorControl)
 
 ExerciseProvider::ExerciseProvider (){}
 
