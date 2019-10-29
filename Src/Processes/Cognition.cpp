@@ -24,7 +24,7 @@ Cognition::Cognition() :
   theMotionSender(this),
   theSPLMessageHandler(inTeamMessages, outTeamMessage),
   moduleManager({ModuleBase::cognitionInfrastructure, ModuleBase::communication,
-                 ModuleBase::perception, ModuleBase::modeling, ModuleBase::behaviorControl}),
+                 ModuleBase::perception, ModuleBase::modeling, ModuleBase::behaviorControl, ModuleBase::homework_3_5}),
   logger("Cognition", 'c', 60)
 {
   theDebugSender.setSize(5200000, 100000);

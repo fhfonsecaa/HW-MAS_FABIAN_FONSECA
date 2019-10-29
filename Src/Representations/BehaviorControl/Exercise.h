@@ -1,5 +1,5 @@
 /****************************************************
-* Exercise1.h                                       *
+* Exercise.h                                       *
 * @author   Fabian Fonseca fhfonsecaa@gmail.com     *
 * @date     Oct 2019                                *
 ****************************************************/

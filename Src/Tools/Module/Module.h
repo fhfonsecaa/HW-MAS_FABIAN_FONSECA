@@ -64,6 +64,7 @@ public:
     motionInfrastructure,
     sensing,
     motionControl,
+    homework_3_5,
   });
 
   static const unsigned char numOfCategories = numOfCategorys;
