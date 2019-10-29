@@ -54,11 +54,11 @@ void BallCorrector::update(BallPercept& theBallPercept)
       theBallPercept.status = theConfirmedBallSpot.status;
 
       // EXERCISE 2
-      float radius = hypot (theBallPercept.positionOnField.x(), theBallPercept.positionOnField.y());
-      std::cout << "Radius: " << radius << std::endl;
-      if(radius >= 2000){
-        theBallPercept.status = BallPercept::notSeen;
-      }
+      // float radius = hypot (theBallPercept.positionOnField.x(), theBallPercept.positionOnField.y());
+      // std::cout << "Radius: " << radius << std::endl;
+      // if(radius >= 2000){
+      //   theBallPercept.status = BallPercept::notSeen;
+      // }
 
     }
   }

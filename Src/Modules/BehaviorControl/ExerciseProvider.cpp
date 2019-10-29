@@ -19,6 +19,6 @@ void ExerciseProvider::update(Exercise &exercise){
   // }
 
   // UNCOMENT EXERCISE 2
-  std::cout << "ballpose = " << exercise.ballPose.transpose() << std::endl;
-  std::cout << "ballperceptionstatus = " << exercise.BallPerceptStatus << std::endl;
+  // std::cout << "ballpose = " << exercise.ballPose.transpose() << std::endl;
+  // std::cout << "ballperceptionstatus = " << exercise.BallPerceptStatus << std::endl;
 }
