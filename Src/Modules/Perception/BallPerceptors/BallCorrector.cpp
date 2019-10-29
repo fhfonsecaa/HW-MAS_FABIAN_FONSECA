@@ -16,6 +16,9 @@
 #include "Tools/Math/Transformation.h"
 #include "Tools/NeuralNetwork/NNUtilities.h"
 
+#include <iostream>
+#include <math.h> 
+
 MAKE_MODULE(BallCorrector, perception)
 
 Vector2i BallCorrector::circleAngles[MAXIMUM_RADIUS][NUM_ANGLES];
@@ -49,6 +52,14 @@ void BallCorrector::update(BallPercept& theBallPercept)
       theBallPercept.positionOnField = ballOnField;
       theBallPercept.radiusInImage = IISC::getImageBallRadiusByCenter(theBallPercept.positionInImage, theCameraInfo, theCameraMatrix, theBallSpecification);
       theBallPercept.status = theConfirmedBallSpot.status;
+
+      // EXERCISE 2
+      float radius = hypot (theBallPercept.positionOnField.x(), theBallPercept.positionOnField.y());
+      std::cout << "Radius: " << radius << std::endl;
+      if(radius >= 2000){
+        theBallPercept.status = BallPercept::notSeen;
+      }
+
     }
   }
 }

@@ -20,8 +20,11 @@ STREAMABLE(Exercise,
 {
 	public:
 		float _initMacro,
+    // EXERCISE 1
     (Vector2f)(0.f, 0.f) robotPose,
     (Vector2f)(0.f, 0.f) ballPose,
     (ENUM_INDEXED_ARRAY(Angle, Joints::Joint)) jointAngles,
+    // EXERCISE 2
+    (bool)(true) BallPerceptStatus,
     }
 });
