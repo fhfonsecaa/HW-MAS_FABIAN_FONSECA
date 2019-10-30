@@ -55,6 +55,8 @@
 
 #include "Representations/spqr_representations/ConfigurationParameters.h"
 
+#include "Representations/Homework_3_5/Exercise3_5.h"
+
 #ifdef __INTELLISENSE__
 #define INTELLISENSE_PREFIX Soccer::
 #endif
@@ -91,6 +93,7 @@ BEHAVIOR_OPTION(Soccer, BehaviorOptionInterface,
   REQUIRES(FieldDimensions),
   REQUIRES(FreeCorridors),
   REQUIRES(ObstaclesFieldPercept),
+  REQUIRES(Exercise3_5),
 
   MODIFIES(ArmMotionRequest),
   MODIFIES(BehaviorStatus),

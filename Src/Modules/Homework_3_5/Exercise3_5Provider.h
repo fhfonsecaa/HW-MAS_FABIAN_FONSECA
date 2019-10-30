@@ -5,7 +5,7 @@
 ****************************************************/
 
 #include "Representations/Homework_3_5/Exercise3_5.h"
-#include "Representations/Perception/BallPercepts/BallPercept.h"
+#include "Representations/Modeling/BallModel.h"
 #include "Representations/Modeling/RobotPose.h"
 #include "Representations/Infrastructure/JointAngles.h"
 #include "Tools/Module/Module.h"
@@ -13,9 +13,9 @@
 
 MODULE (Exercise3_5Provider,
 {,
-  REQUIRES(BallPercept),
+  REQUIRES(BallModel),
+  REQUIRES(BallState),
   REQUIRES(RobotPose),
-  REQUIRES(JointAngles),
   PROVIDES(Exercise3_5),
 });
 

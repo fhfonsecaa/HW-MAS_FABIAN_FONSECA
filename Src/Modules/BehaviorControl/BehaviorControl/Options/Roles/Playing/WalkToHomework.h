@@ -44,8 +44,8 @@ option(WalkToHomework)
     //                           Pose2f(theLibCodeRelease.rel2Glob(theBallModel.estimate.position.x(),
     //                                                          theBallModel.estimate.position.y())));
       WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f),
-                              Pose2f(theLibCodeRelease.rel2Glob(theExercise3_5.ballPose.x(),
-                                                             theExercise3_5.ballPose.y())));
+                              Pose2f(theLibCodeRelease.rel2Glob(theExercise3_5.ballPoseAproach.x(),
+                                                             theExercise3_5.ballPoseAproach.y())));
     }
   }
 }
