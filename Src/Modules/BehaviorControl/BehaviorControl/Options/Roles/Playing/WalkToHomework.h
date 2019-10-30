@@ -43,9 +43,41 @@ option(WalkToHomework)
     //   WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f),
     //                           Pose2f(theLibCodeRelease.rel2Glob(theBallModel.estimate.position.x(),
     //                                                          theBallModel.estimate.position.y())));
+      // WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f),
+      //                         Pose2f(theLibCodeRelease.rel2Glob(theExercise3_5.ballPoseAproach.x(),
+      //                                                        theExercise3_5.ballPoseAproach.y())));
       WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f),
-                              Pose2f(theLibCodeRelease.rel2Glob(theExercise3_5.ballPoseAproach.x(),
-                                                             theExercise3_5.ballPoseAproach.y())));
+                              Pose2f(theLibCodeRelease.rel2Glob(theExercise3_5.ballPoseCircle.x(),
+                                                             theExercise3_5.ballPoseCircle.y())));
+    }
+
+  }
+
+  // state(walkToBall)
+  // {
+  //   transition
+  //   {
+  //     if (theExercise3_5.distanceToBall < 260)
+  //       goto standBy;
+  //   }
+  //   action
+  //   {
+  //     lookAtBall();
+  //     WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f),
+  //                             Pose2f(theLibCodeRelease.rel2Glob(theBallModel.estimate.position.x(),
+  //                                                            theBallModel.estimate.position.y())));
+  //   }
+  // }
+
+  state(standBy)
+  {
+    transition
+    {
+      
+    }
+    action
+    {
+      Stand();
     }
   }
 }

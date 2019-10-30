@@ -11,16 +11,20 @@
 #include "Tools/Module/Module.h"
 #include <iostream>
 
+#define PI 3.14159265
+#define dA 0.00001
+
 MODULE (Exercise3_5Provider,
 {,
   REQUIRES(BallModel),
-  REQUIRES(BallState),
   REQUIRES(RobotPose),
   PROVIDES(Exercise3_5),
 });
 
 class Exercise3_5Provider : public Exercise3_5ProviderBase {
-public :
-  Exercise3_5Provider();
-  void update(Exercise3_5 &exercise3_5);
+  public:
+    Exercise3_5Provider();
+    void update(Exercise3_5 &exercise3_5);
+  private:
+    double angle;
 };

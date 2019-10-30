@@ -20,8 +20,10 @@ STREAMABLE(Exercise3_5,
 {
 	public:
 		float _initMacro,
+    (float)(0.f) distanceToBall,
     (Vector2f)(0.f, 0.f) robotPose,
     (Vector2f)(0.f, 0.f) ballPose,
     (Vector2f)(0.f, 0.f) ballPoseAproach,
+    (Vector2f)(0.f, 0.f) ballPoseCircle,
     }
 });
