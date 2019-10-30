@@ -58,3 +58,4 @@
 #include "Options/Tools/USBCheck.h"
 
 #include "Options/Roles/Playing/WalkToHomework.h"
+#include "Options/Roles/Playing/KickToHomework.h"
