@@ -1,22 +1,15 @@
 #include "Exercise3_5Provider.h"
 MAKE_MODULE(Exercise3_5Provider, homework_3_5)
 
-
-
-Exercise3_5Provider::Exercise3_5Provider (){
-  angle = 0;
-}
+Exercise3_5Provider::Exercise3_5Provider (){}
 
 void Exercise3_5Provider::update(Exercise3_5 &exercise3_5){
   exercise3_5.robotPose = theRobotPose.translation;
   exercise3_5.ballPose = theBallModel.lastPerception;
 
-  double orientation = atan2 (exercise3_5.ballPoseAproach.y(),exercise3_5.ballPoseAproach.x());
+  double orientation = atan2 (exercise3_5.ballPose.y(),exercise3_5.ballPose.x());
   double margin = 220;
   double radius = 600;
-
-  // exercise3_5.ballPoseAproach.x() = theBallModel.lastPerception.x() - theBallModel.estimate.radius*cos(orientation)*segFactor;
-  // exercise3_5.ballPoseAproach.y() = theBallModel.lastPerception.y() - theBallModel.estimate.radius*sin(orientation)*segFactor;
 
   exercise3_5.ballPoseAproach.x() = theBallModel.lastPerception.x() - margin*cos(orientation);
   exercise3_5.ballPoseAproach.y() = theBallModel.lastPerception.y() - margin*sin(orientation);
@@ -31,7 +24,6 @@ void Exercise3_5Provider::update(Exercise3_5 &exercise3_5){
 
   // std::cout << "Radius  = " << theBallModel.estimate.radius << " X " << theBallModel.estimate.radius*cos(orientation) << " Y " << theBallModel.estimate.radius*sin(orientation) << std::endl;
 
-  exercise3_5.ballPoseCircle.x() = theBallModel.lastPerception.x() + cos(angle+dA)*radius;
-  exercise3_5.ballPoseCircle.y() = theBallModel.lastPerception.y() + sin(angle+dA)*radius;
-  
+  exercise3_5.ballPoseCircle.x() = theBallModel.lastPerception.x() + cos(orientation)*radius;
+  exercise3_5.ballPoseCircle.y() = theBallModel.lastPerception.y() + sin(orientation)*radius;
 }

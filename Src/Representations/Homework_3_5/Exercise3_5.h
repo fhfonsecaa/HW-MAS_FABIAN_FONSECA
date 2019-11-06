@@ -21,6 +21,7 @@ STREAMABLE(Exercise3_5,
 	public:
 		float _initMacro,
     (float)(0.f) distanceToBall,
+    (float)(0.f) angle,
     (Vector2f)(0.f, 0.f) robotPose,
     (Vector2f)(0.f, 0.f) ballPose,
     (Vector2f)(0.f, 0.f) ballPoseAproach,
