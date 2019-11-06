@@ -7,7 +7,7 @@ option(KickToHomework)
       if (theLibCodeRelease.timeSinceBallWasSeen > 3000)
         goto lookAround;
       else
-        goto kickToCorner;
+        goto goToBall;
     }
     action
     {
@@ -30,26 +30,61 @@ option(KickToHomework)
     }
   }
 
+  state(goToBall)
+  {
+    transition
+    {
+      if (theLibCodeRelease.timeSinceBallWasSeen > 3000)
+        goto lookAround;
+      if (theExercise3_5.distanceToBall < 220 &&
+          abs(theExercise3_5.angleToKick - theRobotPose.rotation) < 0.05)
+        goto kickToCorner;
+    }
+    action
+    {
+      lookAtBall();
+      WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f),
+                              Pose2f(Angle(theExercise3_5.angleToKick),
+                                     theExercise3_5.ballPoseToKick.x(),
+                                     theExercise3_5.ballPoseToKick.y()));
+    }
+  }
+
+  // state(alignToFoot)
+  // {
+  //   Pose2f alignPose = Pose2f(theLibCodeRelease.rel2Glob(-10,0));
+  //   alignPose.rotation = theExercise3_5.angleToKick;
+
+  //   transition
+  //   {
+  //     if (theLibCodeRelease.timeSinceBallWasSeen > 3000)
+  //       goto lookAround;
+  //     if (abs(alignPose.translation.y() - theRobotPose.translation.y()) < 10 &&
+  //         abs(alignPose.translation.x() - theRobotPose.translation.x()) < 10 &&
+  //         abs(theExercise3_5.angleToKick - theRobotPose.rotation) < 0.05)
+  //       goto kickToCorner;
+  //   }
+  //   action
+  //   {
+  //     lookAtBall();
+  //     WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f), alignPose);
+  //   }
+  // }
+
   state(kickToCorner)
   {
     transition
     {
       if (theLibCodeRelease.timeSinceBallWasSeen > 3000)
-        goto lookAround ;
+        goto lookAround;
+      if (theExercise3_5.distanceToBall > 220 ||
+          abs(theExercise3_5.angleToKick - theRobotPose.rotation) > 0.05)
+        goto goToBall;
     }
     action
     {
       lookAtBall();
-    //   WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f),
-    //                           Pose2f(theLibCodeRelease.rel2Glob(theBallModel.estimate.position.x(),
-    //                                                          theBallModel.estimate.position.y())));
-      // WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f),
-      //                         Pose2f(theLibCodeRelease.rel2Glob(theExercise3_5.ballPoseAproach.x(),
-      //                                                        theExercise3_5.ballPoseAproach.y())));
-      WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f),
-                              Pose2f(theLibCodeRelease.rel2Glob(theExercise3_5.ballPoseCircle.x(),
-                                                             theExercise3_5.ballPoseCircle.y())));
+      Kicks(std::string("lobKick"));
     }
-
   }
 }

@@ -35,8 +35,8 @@ option(PlayingState)
 
 #else       
             // Stand();
-            WalkToHomework();
-            // KickToHomework();
+            // WalkToHomework();
+            KickToHomework();
 #endif
         }
     }

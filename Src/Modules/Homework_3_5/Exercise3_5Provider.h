@@ -4,10 +4,12 @@
 * @date     Oct 2019                                *
 ****************************************************/
 
+#include "Representations/BehaviorControl/Libraries/LibCodeRelease.h"
 #include "Representations/Homework_3_5/Exercise3_5.h"
 #include "Representations/Modeling/BallModel.h"
 #include "Representations/Modeling/RobotPose.h"
 #include "Representations/Infrastructure/JointAngles.h"
+#include "Representations/Configuration/FieldDimensions.h"
 #include "Tools/Module/Module.h"
 #include <iostream>
 
@@ -16,6 +18,7 @@
 
 MODULE (Exercise3_5Provider,
 {,
+  REQUIRES(LibCodeRelease),
   REQUIRES(BallModel),
   REQUIRES(RobotPose),
   PROVIDES(Exercise3_5),
@@ -25,6 +28,9 @@ class Exercise3_5Provider : public Exercise3_5ProviderBase {
   public:
     Exercise3_5Provider();
     void update(Exercise3_5 &exercise3_5);
+    void selectCorner();
+
   private:
-    double angle;
+    std::vector<std::tuple<float,float>> corners;
+    int randCornerIndex;
 };
