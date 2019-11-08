@@ -21,12 +21,11 @@ MAKE_MODULE(ContextCoordinator, behaviorControl)
 
 ContextCoordinator::ContextCoordinator(){
     SPQR::ConfigurationParameters();
-    
 }
 
 
-void ContextCoordinator::update(Role& role)
-{ 
+void ContextCoordinator::update(Role& role){ 
     role.role = Role::RoleType::taker;
+    role.role = Role::RoleType::kicker;
     return;
 }

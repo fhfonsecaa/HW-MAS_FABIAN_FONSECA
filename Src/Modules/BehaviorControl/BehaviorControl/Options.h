@@ -59,3 +59,6 @@
 
 #include "Options/Roles/Playing/WalkToHomework.h"
 #include "Options/Roles/Playing/KickToHomework.h"
+
+#include "Options/Roles/Playing/KickerBehavior.h"
+#include "Options/Roles/Playing/TakerBehavior.h"

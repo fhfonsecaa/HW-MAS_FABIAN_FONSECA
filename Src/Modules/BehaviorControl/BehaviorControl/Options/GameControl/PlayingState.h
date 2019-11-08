@@ -1,4 +1,4 @@
-#define SINGLE_ROLE
+// #define SINGLE_ROLE
 #define getExtraTime() ( (theGameInfo.kickingTeam != theOwnTeamInfo.teamNumber) ? 10000.f : 0.f)
 
 
@@ -14,7 +14,14 @@ option(PlayingState)
             switch ((int)theGameInfo.setPlay)
             {
                 case PLAY:
-                    Stand();
+                    // choose the role vs behavior
+                    if(theRoleAndContext.myRole == Role::RoleType::taker){
+                        TakerBehavior();
+                    }
+                    else if(theRoleAndContext.myRole == Role::RoleType::kicker){
+                        KickerBehavior();
+                    }
+                    // Stand();
                     break;
                 case GOALFREEKICK:
                     Stand();
@@ -36,7 +43,7 @@ option(PlayingState)
 #else       
             // Stand();
             // WalkToHomework();
-            KickToHomework();
+            // KickToHomework();
 #endif
         }
     }
