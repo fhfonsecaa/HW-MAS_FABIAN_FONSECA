@@ -15,7 +15,6 @@
 #include <iostream>
 
 #define PI 3.14159265
-#define dA 0.00001
 
 MODULE (Exercise3_5Provider,
 {,

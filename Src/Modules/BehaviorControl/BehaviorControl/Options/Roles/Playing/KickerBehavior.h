@@ -59,13 +59,13 @@ option(KickerBehavior)
 
   state(kickToZone)
   {
-    std::cout << "kickToZone" <<std::endl;
-    std::cout << state_time <<std::endl;
     transition
     {
       if (theLibCodeRelease.timeSinceBallWasSeen > 3000)
         goto lookAround;
-      if (state_time > 2000)
+      if (theExercise3_5.distanceToBall > 300)
+        goto goToBall;
+      if (state_time > 8000)
         goto goToBallCloser;
     }
     action
@@ -77,7 +77,6 @@ option(KickerBehavior)
 
   state(goToBallCloser)
   {
-    std::cout << "goToBallCloser" <<std::endl;
     transition
     {
       if (theLibCodeRelease.timeSinceBallWasSeen > 3000)
