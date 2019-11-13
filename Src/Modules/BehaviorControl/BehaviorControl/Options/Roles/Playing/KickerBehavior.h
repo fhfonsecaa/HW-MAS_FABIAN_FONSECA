@@ -1,3 +1,6 @@
+ /* ====================================== EXERCISE 5 ====================================== */
+ /* ==================================== Ping Pong Game ==================================== */
+ /* ======================================== Kicker ======================================== */
 option(KickerBehavior)
 {
   initial_state(start)
@@ -21,7 +24,7 @@ option(KickerBehavior)
     transition
     {
       if (theLibCodeRelease.timeSinceBallWasSeen < 700)
-        goto kickToCorner;
+        goto goToBall;
     }
     action
     {
@@ -32,6 +35,7 @@ option(KickerBehavior)
 
   state(goToBall)
   {
+    std::cout << "GoToBall" <<std::endl;
     transition
     {
       if (theLibCodeRelease.timeSinceBallWasSeen > 3000)
@@ -39,7 +43,7 @@ option(KickerBehavior)
       if (abs(theExercise3_5.ballPoseToKick.x() - theRobotPose.translation.x()) < 30 &&
           abs(theExercise3_5.ballPoseToKick.y() - theRobotPose.translation.y()) < 30 &&
           abs(theExercise3_5.angleToKick - theRobotPose.rotation) < 0.05)
-        goto kickToCorner;
+        goto kickToZone;
     }
     action
     {
@@ -53,19 +57,43 @@ option(KickerBehavior)
     }
   }
 
-  state(kickToCorner)
+  state(kickToZone)
   {
+    std::cout << "kickToZone" <<std::endl;
+    std::cout << state_time <<std::endl;
     transition
     {
       if (theLibCodeRelease.timeSinceBallWasSeen > 3000)
         goto lookAround;
-      if (theExercise3_5.distanceToBall > 300)
-        goto goToBall;
+      if (state_time > 2000)
+        goto goToBallCloser;
     }
     action
     {
       lookAtBall();
-      Kicks(std::string("fastForwardKick"));
+      Kicks(std::string("lobKick"));
+    }
+  }
+
+  state(goToBallCloser)
+  {
+    std::cout << "goToBallCloser" <<std::endl;
+    transition
+    {
+      if (theLibCodeRelease.timeSinceBallWasSeen > 3000)
+        goto lookAround;
+      if (abs(theExercise3_5.ballPoseToKickCloser.x() - theRobotPose.translation.x()) < 10 &&
+          abs(theExercise3_5.ballPoseToKickCloser.y() - theRobotPose.translation.y()) < 10 &&
+          abs(theExercise3_5.angleToKick - theRobotPose.rotation) < 0.05)
+        goto kickToZone;
+    }
+    action
+    {
+      lookAtBall();
+      WalkToTargetPathPlanner(Pose2f(1.f, 1.f, 1.f),
+                              Pose2f(Angle(theExercise3_5.angleToKick),
+                                     theExercise3_5.ballPoseToKickCloser.x(),
+                                     theExercise3_5.ballPoseToKickCloser.y()));
     }
   }
 }

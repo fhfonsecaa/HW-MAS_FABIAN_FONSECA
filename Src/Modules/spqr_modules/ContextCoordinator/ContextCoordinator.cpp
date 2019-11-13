@@ -25,7 +25,10 @@ ContextCoordinator::ContextCoordinator(){
 
 
 void ContextCoordinator::update(Role& role){ 
-    role.role = Role::RoleType::taker;
-    role.role = Role::RoleType::kicker;
+    if(theExercise3_5.strRole == "taker"){
+        role.role = Role::RoleType::taker;
+    }else if(theExercise3_5.strRole == "kicker"){
+        role.role = Role::RoleType::kicker;
+    }
     return;
 }

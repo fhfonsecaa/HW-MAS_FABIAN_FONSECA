@@ -15,10 +15,10 @@ option(PlayingState)
             {
                 case PLAY:
                     // choose the role vs behavior
-                    if(theRoleAndContext.myRole == Role::RoleType::taker){
+                    if(theRole.role == Role::RoleType::taker){
                         TakerBehavior();
                     }
-                    else if(theRoleAndContext.myRole == Role::RoleType::kicker){
+                    else if(theRole.role == Role::RoleType::kicker){
                         KickerBehavior();
                     }
                     // Stand();

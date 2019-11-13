@@ -53,7 +53,8 @@ void BallCorrector::update(BallPercept& theBallPercept)
       theBallPercept.radiusInImage = IISC::getImageBallRadiusByCenter(theBallPercept.positionInImage, theCameraInfo, theCameraMatrix, theBallSpecification);
       theBallPercept.status = theConfirmedBallSpot.status;
 
-      // EXERCISE 2
+      /* ====================================== EXERCISE 2 ====================================== */
+      /* =================================== The blind robot ==================================== */
       // float radius = hypot (theBallPercept.positionOnField.x(), theBallPercept.positionOnField.y());
       // std::cout << "Radius: " << radius << std::endl;
       // if(radius >= 2000){

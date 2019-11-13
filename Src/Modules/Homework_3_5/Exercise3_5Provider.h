@@ -10,6 +10,7 @@
 #include "Representations/Modeling/RobotPose.h"
 #include "Representations/Infrastructure/JointAngles.h"
 #include "Representations/Configuration/FieldDimensions.h"
+#include "Representations/Infrastructure/RobotInfo.h"
 #include "Tools/Module/Module.h"
 #include <iostream>
 
@@ -21,6 +22,7 @@ MODULE (Exercise3_5Provider,
   REQUIRES(LibCodeRelease),
   REQUIRES(BallModel),
   REQUIRES(RobotPose),
+  REQUIRES(RobotInfo),
   PROVIDES(Exercise3_5),
 });
 
@@ -29,8 +31,13 @@ class Exercise3_5Provider : public Exercise3_5ProviderBase {
     Exercise3_5Provider();
     void update(Exercise3_5 &exercise3_5);
     void selectCorner();
+    bool inZone(int zoneIndex, Vector2f pos);
+    bool inZone(int zoneIndex, Pose2f pos);
 
   private:
     std::vector<std::tuple<float,float>> corners;
     int randCornerIndex;
+    std::vector<std::tuple<float,float>> homePoses;
+    std::vector<std::tuple<float,float>> targetPoses;
+    int ballZone;
 };

@@ -27,5 +27,8 @@ STREAMABLE(Exercise3_5,
     (Vector2f)(0.f, 0.f) ballPoseAproach,
     (Vector2f)(0.f, 0.f) ballPoseCircle,
     (Vector2f)(0.f, 0.f) ballPoseToKick,
+    (Vector2f)(0.f, 0.f) ballPoseToKickCloser,
+    (Vector2f)(0.f, 0.f) homePose,
+    (std::string) strRole,
     }
 });

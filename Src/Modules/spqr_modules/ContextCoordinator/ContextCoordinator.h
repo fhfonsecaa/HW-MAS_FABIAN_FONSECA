@@ -30,6 +30,8 @@
 #include "Platform/Time.h"
 #include <mutex>
 
+#include "Representations/Homework_3_5/Exercise3_5.h"
+
 
 MODULE(ContextCoordinator, //TODO need to change Forget and Change as streamable and sand to all also the role toghether with the timestamp.. byebye
 {,
@@ -46,12 +48,13 @@ MODULE(ContextCoordinator, //TODO need to change Forget and Change as streamable
  REQUIRES(TeamBallModel),
  REQUIRES(FieldDimensions),
  REQUIRES(ObstaclesFieldPercept),
+
+ REQUIRES(Exercise3_5),
+
  USES(Role),
  USES(UtilityShare),
  USES(GCData),
  PROVIDES(Role),
-
-
        });
 
 class ContextCoordinator: public ContextCoordinatorBase
